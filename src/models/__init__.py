@@ -1,3 +1,3 @@
-from .database import Base, Session, engine
-from .product import Product
-from .category import Category
+from .database import *
+from .product import *
+from .category import *
