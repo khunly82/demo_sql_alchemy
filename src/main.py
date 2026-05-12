@@ -1,0 +1,14 @@
+import os
+from dotenv import load_dotenv
+from sqlalchemy import create_engine, text
+from sqlalchemy.orm import sessionmaker
+
+load_dotenv()
+
+engine = create_engine(os.getenv('DB_URL'), echo=True)
+session_factory = sessionmaker(bind=engine)
+
+with session_factory() as session:
+    rows = session.execute(text('SELECT * FROM products'))
+    for p in rows:
+        print(p.product_name)
