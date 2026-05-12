@@ -1,7 +1,10 @@
 from __future__ import annotations
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+from typing import TYPE_CHECKING
+from models import Base
+if TYPE_CHECKING:
+    from models import Product
 
-from models import *
 
 class Category(Base):
     __tablename__ = 'categories'
